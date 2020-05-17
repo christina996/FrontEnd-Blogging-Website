@@ -23,7 +23,7 @@ const Blog = ({ post }) => {
     >
       <CardMedia
         className={classes.cardMedia}
-        image={'http://localhost:3000/' + post.photo}
+        image={post.photo}
         // image={'https://source.unsplash.com/random'}
         title={post.title}
       />

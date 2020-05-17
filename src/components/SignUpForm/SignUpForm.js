@@ -41,7 +41,6 @@ const SignUpForm = ({ onAuth, history }) => {
   const onSubmit = (data) => {
     onAuth(data, true)
       .then((res) => {
-        console.log(res);
         toast.success(res.data.message);
         history.replace('/');
       })
@@ -51,7 +50,6 @@ const SignUpForm = ({ onAuth, history }) => {
           toast.error(value.message);
         }
       });
-    console.log(data);
   };
   return (
     <Container component="main" maxWidth="xs">

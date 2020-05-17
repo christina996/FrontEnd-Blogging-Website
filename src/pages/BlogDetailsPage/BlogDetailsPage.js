@@ -66,7 +66,8 @@ const BlogDetailsPage = ({ userId }) => {
               className={classes.media}
               component="img"
               // image={'https://source.unsplash.com/random'}
-              image={'http://localhost:3000/' + blog?.photo}
+              image={blog?.photo}
+              // image={'http://localhost:3000/' + blog?.photo}
             />
           </Card>
         </Grid>

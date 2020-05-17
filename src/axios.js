@@ -9,7 +9,6 @@ const instance = axios.create({
 // Request
 instance.interceptors.request.use(
   (config) => {
-    debugger;
     store.dispatch(startLoading());
     const { token } = store.getState().auth;
     if (token) config.headers.Authorization = token;
@@ -24,7 +23,6 @@ instance.interceptors.request.use(
 // Response
 instance.interceptors.response.use(
   (response) => {
-    console.log(response);
     return response;
   },
   (error) => {
