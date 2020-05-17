@@ -8,7 +8,6 @@ const blogsReducerInitialState = {
 const blogsReducer = (state = blogsReducerInitialState, action) => {
   switch (action.type) {
     case TYPES.GET_BLOGS_SUCCESS:
-      console.log(action.blogs);
       return {
         ...state,
         blogs: [...action.blogs],

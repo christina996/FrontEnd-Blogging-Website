@@ -9,11 +9,13 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import ScrollToTop from './components/scrollToTop/ScrollToTop';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <CssBaseline />
+      <ScrollToTop />
       <App />
     </Provider>
   </BrowserRouter>,

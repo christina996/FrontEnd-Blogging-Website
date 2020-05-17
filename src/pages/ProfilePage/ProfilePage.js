@@ -55,7 +55,6 @@ const ProfilePage = ({
       })
       .catch((error) => history.push('/error'));
   }, [id]);
-  //handel added in any page in home and profile
 
   const handelPagination = async (event, page) => {
     setPage(page);

@@ -77,11 +77,8 @@ const BlogFormDialog = ({
     if (isEdit) setFileName(editingBlog?.photo?.replace('/uploads/', ''));
   }, []);
   const handelFileUpload = (data) => {
-    console.log(data.target.files[0]);
-    debugger;
     const fileImage = data.target.files[0];
     const reader = new FileReader();
-    console.log(fileImage);
     reader.readAsDataURL(fileImage);
     reader.onloadend = () => {
       setFile(fileImage);

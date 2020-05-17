@@ -31,13 +31,10 @@ const HomePage = ({ token, limit, getBlogs, blogs, pages }) => {
       })
       .catch((error) => history.push('/error'));
   }, []);
+
   const getNewBlogs = async () => {
     await getBlogs(1, limit);
   };
-  //handel added in any page in home and profile
-  // useEffect(() => {
-  //   setPage(1);
-  // }, [blogs]);
 
   const handelPagination = async (event, page) => {
     setPage(page);

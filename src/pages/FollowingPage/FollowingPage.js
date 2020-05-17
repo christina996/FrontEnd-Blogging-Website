@@ -22,11 +22,7 @@ const FollowingPage = ({ limit, getFollowingBlogs, blogs, pages }) => {
   const [page, setPage] = useState(1);
   const [load, setLoad] = useState(true);
   let pageLoading = null;
-  // let pageLoading = (
-  //   <Typography className={classes.headerText} variant="h3">
-  //     No Blogs
-  //   </Typography>
-  // );
+
   useEffect(() => {
     getFollowingBlogs(page, limit)
       .then((res) => {

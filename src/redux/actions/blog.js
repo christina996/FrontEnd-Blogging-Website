@@ -43,7 +43,6 @@ const getFollowingBlogs = (page, limit) => (dispatch) => {
   return axios
     .get(`/users/following-blogs?page=${page}&limit=${limit}`)
     .then((response) => {
-      debugger;
       dispatch({
         type: TYPES.GET_BLOGS_SUCCESS,
         blogs: response.data.blogs.blogs,
