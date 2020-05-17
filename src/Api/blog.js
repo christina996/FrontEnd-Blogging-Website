@@ -9,6 +9,7 @@ const getBlogById = (id) => {
     });
 };
 const addBlog = (data) => {
+  debugger;
   return axios.post('/blogs', data).catch((err) => {
     throw err.response.data;
   });

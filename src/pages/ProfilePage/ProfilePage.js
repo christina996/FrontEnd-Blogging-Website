@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import BlogFormDialog from '../../components/BlogFormDialog/BlogFormDialog';
 import Blog from '../../components/Blog/Blog';
@@ -39,6 +40,7 @@ const ProfilePage = ({
     classes.imgRoundedCircle,
     classes.imgFluid
   );
+  const matches = useMediaQuery('(max-width:700px)');
 
   const [page, setPage] = useState(1);
   const [load, setLoad] = useState(true);
@@ -99,69 +101,65 @@ const ProfilePage = ({
           filter
           image={require('../../assets/img/profile-bg.jpg')}
         />
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div>
-            <div className={classes.container}>
-              <Grid container justify="center">
-                <Grid item xs={12} sm={12} md={6}>
-                  <div className={classes.profile}>
-                    <div>
-                      <img
-                        src={require('../../assets/img/boy.jpg')}
-                        alt="..."
-                        className={imageClasses}
-                      />
-                    </div>
-                    <div className={classes.name}>
-                      <Typography component="h3" variant="h3">
-                        {user.firstName + ' ' + user.lastName}
-                      </Typography>
-                      {userId !== user._id && (
-                        <Grid item className={classes.btn}>
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={handelFollow}
-                          >
-                            {!isFollow ? 'Follow' : 'Un Follow'}
-                          </Button>
-                        </Grid>
-                      )}
-                    </div>
-                  </div>
-                </Grid>
-              </Grid>
-              <Grid container justify="center">
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={8}
-                  className={classes.navWrapper}
-                >
-                  <Typography variant="h4" component="h4">
-                    Posts
+        <div
+          className={
+            matches
+              ? classes.marginMainRaised
+              : classNames(classes.main, classes.mainRaised)
+          }
+        >
+          <Grid container justify="center">
+            <Grid item xs={12} sm={12} md={6}>
+              <div className={classes.profile}>
+                <div>
+                  <img
+                    src={require('../../assets/img/boy.jpg')}
+                    alt="..."
+                    className={imageClasses}
+                  />
+                </div>
+                <div className={classes.name}>
+                  <Typography component="h3" variant="h3">
+                    {user.firstName + ' ' + user.lastName}
                   </Typography>
-                </Grid>
-                <Grid container justify="center" spacing={2}>
-                  {ListOfBlogs}
-                </Grid>
+                  {userId !== user._id && (
+                    <Grid item className={classes.btn}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handelFollow}
+                      >
+                        {!isFollow ? 'Follow' : 'Un Follow'}
+                      </Button>
+                    </Grid>
+                  )}
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+          <Grid container justify="center">
+            <Grid item xs={12} sm={12} md={8} className={classes.navWrapper}>
+              <Typography variant="h4" component="h4">
+                Posts
+              </Typography>
+            </Grid>
+            <Grid container justify="center" spacing={2}>
+              {ListOfBlogs}
+            </Grid>
+          </Grid>
+          {pages > 1 && (
+            <Grid container spacing={4} justify="center">
+              <Grid item className={classes.paging}>
+                <Pagination
+                  count={pages}
+                  color="primary"
+                  page={page}
+                  siblingCount={0}
+                  onChange={handelPagination}
+                />
               </Grid>
-              {pages > 1 && (
-                <Grid container spacing={4} justify="center">
-                  <Grid item className={classes.paging}>
-                    <Pagination
-                      count={pages}
-                      color="primary"
-                      page={page}
-                      siblingCount={0}
-                      onChange={handelPagination}
-                    />
-                  </Grid>
-                </Grid>
-              )}
-            </div>
-          </div>
+            </Grid>
+          )}
         </div>
       </Fragment>
     );

@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 10px rgba(0,0,0,0.3)',
     padding: theme.spacing(4),
     wordBreak: 'break-all',
+    margin: '-60px 0px 0px',
   },
   root: {
     display: 'flex',

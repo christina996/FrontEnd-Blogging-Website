@@ -39,6 +39,7 @@ const BlogFormDialog = ({
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
+  const [disabledBtn, setDisabledBtn] = useState(false);
   var formData = new FormData();
 
   const { handleSubmit, register, errors } = useForm({
@@ -46,7 +47,7 @@ const BlogFormDialog = ({
     mode: 'onBlur',
   });
   const onSubmit = async (data) => {
-    debugger;
+    setDisabledBtn(true);
     if (file) {
       formData.append('photo', file);
     }
@@ -177,6 +178,7 @@ const BlogFormDialog = ({
               color={isEdit ? 'secondary' : 'primary'}
               className={classes.submitBtn}
               variant="contained"
+              disabled={disabledBtn}
             >
               {isEdit ? 'Save' : 'Add'}
             </Button>

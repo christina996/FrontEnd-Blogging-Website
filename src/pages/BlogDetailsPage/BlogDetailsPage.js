@@ -59,15 +59,13 @@ const BlogDetailsPage = ({ userId }) => {
       ));
 
     pageLoading = (
-      <Grid container spacing={4} justify="center">
-        <Grid item lg={6} md={8} xs={10}>
+      <Grid container justify="center">
+        <Grid item lg={6} md={8} xs={12}>
           <Card className={classes.cardImage}>
             <CardMedia
-              className={classes.media}
               component="img"
               // image={'https://source.unsplash.com/random'}
               image={blog?.photo}
-              // image={'http://localhost:3000/' + blog?.photo}
             />
           </Card>
         </Grid>
@@ -76,7 +74,7 @@ const BlogDetailsPage = ({ userId }) => {
             <Paper
               className={!matches ? classes.paper : classes.paperSmallScreen}
             >
-              <Typography variant="h2" component="h3" gutterBottom>
+              <Typography variant="h4" component="h1" gutterBottom>
                 {blog?.title}
               </Typography>
               <Typography variant="h6" component="h4" gutterBottom>

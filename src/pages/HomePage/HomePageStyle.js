@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   cardMedia: {
-    width: '100%',
+    // width: '100%',
     height: '500px',
   },
   list: {
