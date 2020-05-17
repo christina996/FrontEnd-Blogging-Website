@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import Blog from '../../components/Blog/Blog';
 import useStyles from './SearchPageStyle';
 import { searchForBlogs } from '../../redux/actions/blog';
+import { debounce } from '../../Api/debounce';
 
 const SearchPage = ({ pages, blogs, searchForBlogs }) => {
   const classes = useStyles();
@@ -38,11 +39,13 @@ const SearchPage = ({ pages, blogs, searchForBlogs }) => {
 
   let ListOfBlogs = null;
 
-  const handelSearch = async (event) => {
-    setSearchInput(event.target.value);
-    await searchForBlogs(page, 2, tab, event.target.value);
+  const handelSearch = async (value) => {
+    setSearchInput(value);
+    await searchForBlogs(page, 2, tab, value);
     setLoad(true);
   };
+
+  const debounceSearch = debounce(handelSearch, 500);
 
   const handleChange = async (event, newValue) => {
     setTab(newValue);
@@ -68,7 +71,7 @@ const SearchPage = ({ pages, blogs, searchForBlogs }) => {
           className={classes.input}
           placeholder="Search For Blogs"
           inputProps={{ 'aria-label': 'Search For Blogs' }}
-          onChange={handelSearch}
+          onChange={(e) => debounceSearch(e.target.value)}
         />
         <IconButton
           type="submit"
