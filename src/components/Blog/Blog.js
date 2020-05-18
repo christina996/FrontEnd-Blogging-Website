@@ -35,9 +35,9 @@ const Blog = ({ post }) => {
         />
         <CardContent>
           <Typography variant="subtitle1" paragraph>
-            {post.body?.slice(0, 100)}
+            {post.body?.slice(0, 100)}...
           </Typography>
-          <Typography color="primary">Continue reading...</Typography>
+          <Typography color="primary">Continue reading</Typography>
         </CardContent>
       </div>
     </CardActionArea>

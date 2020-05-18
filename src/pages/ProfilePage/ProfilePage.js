@@ -73,6 +73,10 @@ const ProfilePage = ({
   const getNewBlogs = async () => {
     await getBlogsByUserId(id, 1, limit);
   };
+  const capitalize = (s) => {
+    if (typeof s !== 'string') return '';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
   profile = (
     <div className={classes.progress}>
       <CircularProgress color="primary" thickness={4} size={100} />
@@ -119,7 +123,9 @@ const ProfilePage = ({
                 </div>
                 <div className={classes.name}>
                   <Typography component="h3" variant="h3">
-                    {user.firstName + ' ' + user.lastName}
+                    {capitalize(user.firstName) +
+                      ' ' +
+                      capitalize(user.lastName)}
                   </Typography>
                   {userId !== user._id && (
                     <Grid item className={classes.btn}>

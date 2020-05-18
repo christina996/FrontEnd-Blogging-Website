@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px 20px 0px 0px',
   },
   cardText: {
-    wordBreak: 'break-all',
+    wordBreak: 'break-word',
   },
 }));
 
