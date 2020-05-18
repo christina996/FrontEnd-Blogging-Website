@@ -66,7 +66,7 @@ const SearchPage = ({ pages, blogs, searchForBlogs }) => {
 
   return (
     <Container>
-      <Paper component="form" className={classes.rootSearch}>
+      <Paper className={classes.rootSearch}>
         <InputBase
           className={classes.input}
           placeholder="Search For Blogs"

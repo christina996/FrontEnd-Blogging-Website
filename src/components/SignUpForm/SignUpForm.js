@@ -77,7 +77,6 @@ const SignUpForm = ({ onAuth, history }) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoFocus
                 error={!!errors.firstName}
                 helperText={errors.firstName?.message}
                 inputRef={register}
