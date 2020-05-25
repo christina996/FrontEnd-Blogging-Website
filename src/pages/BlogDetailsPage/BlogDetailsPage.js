@@ -53,11 +53,20 @@ const BlogDetailsPage = ({ userId }) => {
   if (!load) {
     let tagList = null;
 
-    if (blog.tags.length)
-      tagList = blog?.tags.map((el) => (
-        <Chip label={el} key={el} className={classes.chip} color="primary" />
-      ));
-
+    if (blog.tags.length) {
+      debugger;
+      tagList = blog?.tags.map(
+        (el) =>
+          el !== '' && (
+            <Chip
+              label={el}
+              key={el}
+              className={classes.chip}
+              color="primary"
+            />
+          )
+      );
+    }
     pageLoading = (
       <Grid container justify="center">
         <Grid item lg={6} md={8} xs={12}>
